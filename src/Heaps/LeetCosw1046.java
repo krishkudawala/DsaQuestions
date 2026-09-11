@@ -1,0 +1,41 @@
+package Heaps;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.PriorityQueue;
+
+public class LeetCosw1046 {
+    public static int lastStoneWeight(int[] stones) {
+//        List<Integer> arr=new ArrayList<>();
+//        for (int ele : stones){
+//            arr.add(ele);
+//        }
+//        while (arr.size()>1){
+//            Collections.sort(arr);
+//            int y=arr.remove(arr.size()-1);
+//            int x=arr.remove(arr.size()-1);
+//            if (y!=x)arr.add(y-x);
+//        }
+//        if (arr.size()==0) return 0;
+//        else return arr.get(0);
+
+
+    PriorityQueue<Integer> pq=new PriorityQueue<>(Collections.reverseOrder());
+    for(int ele :stones){
+        pq.add(ele);
+    }
+    while (pq.size()>1){
+        int y=pq.remove();
+        int x=pq.remove();
+        if (y!=x) pq.add(y-x);
+    }
+    if (pq.size()==0) return 0;
+    else return pq.remove();
+    }
+    public static void main(String[] args) {
+        int[] arr={2,7,4,1,8,1};
+        System.out.println(lastStoneWeight(arr));
+
+    }
+}
