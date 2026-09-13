@@ -3,7 +3,7 @@ package Tree1;
 public class Size {
     public static int size(Node root){
         if (root==null) return 0;
-        return 1 +size(root.left)+size(root.right);
+        return root.val +size(root.left)+size(root.right);
     }
     public static void main(String[] args) {
         Node a=new Node(1);
