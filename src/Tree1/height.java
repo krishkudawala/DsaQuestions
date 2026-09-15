@@ -15,6 +15,6 @@ public class height {
         a.left=b; a.right=c;
         b.left=d; b.right=e;
 
-        System.out.println(heigjt(a));
+        System.out.println(heigjt(a)-1);
     }
 }
