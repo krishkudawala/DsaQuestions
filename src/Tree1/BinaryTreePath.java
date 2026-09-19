@@ -33,6 +33,7 @@ public class BinaryTreePath {
         List<String> ans=new ArrayList<>();
 
         path(a,"",ans);
+
         System.out.println(ans);
 
     }
