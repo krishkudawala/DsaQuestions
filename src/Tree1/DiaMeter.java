@@ -1,12 +1,21 @@
 package Tree1;
 
 public class DiaMeter {
-    public static int max(int a,int b,int c){
-        return Math.max(a,Math.min(b,c));
-    }
-    public static int levels(Node root){
+//    public static int max(int a,int b,int c){
+//        return Math.max(a,Math.min(b,c));
+//    }
+//    public static int levels(Node root){
+//        if (root==null) return 0;
+//        return 1+Math.max(levels(root.left),levels(root.right));
+//    }
+
+    public static int levels(Node root ,int [] maxdia){
         if (root==null) return 0;
-        return 1+Math.max(levels(root.left),levels(root.right));
+        int left=levels(root.left,maxdia);
+        int right=levels(root.right,maxdia);
+        int dia=left+right;
+        maxdia[0]=Math.max(dia,maxdia[0]);
+        return 1+Math.max(left,right);
     }
     public static void main(String[] args) {
         Node a = new Node(1);
@@ -25,10 +34,14 @@ public class DiaMeter {
         d.left=h;d.right=i;
 
 
-        int mydia=levels(a.left)+levels(a.right);
-        int leftdia=levels(a.left);
-        int rightdia=levels(a.right);
+//        int mydia=levels(a.left)+levels(a.right);
+//        int leftdia=levels(a.left);
+//        int rightdia=levels(a.right);
+//
+//        System.out.println(max(mydia,leftdia,rightdia));
 
-        System.out.println(max(mydia,leftdia,rightdia));
+        int [] dia={0};
+        levels(a,dia);
+        System.out.println(dia[0]);
     }
 }
